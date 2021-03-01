@@ -10,6 +10,13 @@ context.lineWidth = 10;
 context.strokeRect(0,0,width,height)
 // context.scale(.7,.7)
 
+class Game {
+      constructor() {
+            this.width = canvas.width;
+            this.height = canvas.height;
+      }
+}
+
 class Entity {
 
       constructor(name,level,gold,xp) {
