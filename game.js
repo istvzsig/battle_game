@@ -1,3 +1,10 @@
 import Game from './modules/Game.mjs';
 
-new Game;
+
+
+function fight(game,player) {
+
+      console.log(game.player)
+}
+
+const game = new Game;

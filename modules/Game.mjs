@@ -1,26 +1,37 @@
 import {Entity,Player} from './Entities.mjs';
-
+import {minmax} from './functions.mjs';
 export default class Game {
       constructor() {
             // PLAYER
             let player = this.player = new Player();
+            player.name = 'Dev'
+            // player.level += 12121
 
-            player.level+= 100
+            // PLAYER UPDATE SHOULD BE HERE BECAUSE SOME ENEMY STAT UPDATE REGARDING PLAYER SATATS
+
+
 
             // ENEMY
-            let enemyLevel = this.minmax(player.level+5,player.level);
+            let enemyLevel = minmax(player.level+5,player.level);
             let enemyNames = ['KUKULULU', 'Piszkos Fasz', 'Gazember'];
             let enemy = this.enemy = new Entity(this.random(enemyNames),enemyLevel);
 
             // GLOBAL FUNCTIONS
-            this.draw([player,enemy]);
+
+
+            onclick = e => {
+
+                  // this.player.attack(this.enemy.hp)
+                  return enemy.hp -= 10
+
+
+            }
+            this.draw([player,enemy])
+
 
       }
 
       // GAME FUNCTIONS
-      minmax(min,max) { // get random value with min/max
-            return Math.floor(Math.random() * (max - min) + min);
-      }
       random(array) { // get random value from array
             return array[Math.floor(Math.random() * array.length)]
       }
@@ -35,9 +46,11 @@ export default class Game {
                   let div = document.createElement('div');
 
                   document.body.appendChild(div);
+                  div.className = 'side'
                   div.id = side.name;
 
                   let sideStats = [side['name'],side['level'],side['hp'],side['magic']];
+                  sideStats.pop();
 
 
                   sideStats.forEach(stat => {
@@ -49,11 +62,12 @@ export default class Game {
                                     p.innerText = `Lv.${stat}`;
                                     break;
                               case sideStats[2]:
-                                    p.innerText = `Hp:${stat}`;
+                                    p.innerText = `${stat}`;
+
                                     break;
-                              case sideStats[3]:
-                                    p.innerText = `Mana:${stat}`;
-                                    break;
+                              // case sideStats[3]:
+                              //       p.innerText = `Mana:${stat}`;
+                              //       break;
                               default:
                                     p.innerText = stat;
                                     break;
@@ -66,5 +80,6 @@ export default class Game {
 
 
       }
+
 
 }

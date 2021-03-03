@@ -1,19 +1,38 @@
+import {minmax} from './functions.mjs';
+
 export class Entity {
-      constructor(name,level) {
+      constructor(name,level,hp) {
             this.name = name;
             this.level = level;
+            this.hp = this.fullhp
 
       }
-      get hp() {
-            return this.level * 1e2
+
+      get fullhp() {
+            return this.hp = this.level * 100
+
       }
-      get magic() {
-            return this.hp / 2
+
+      set fullhp(value) {
+            this.hp = value
       }
+
+      attack(enemy){
+            let DMG = minmax(this.level*30, this.level*10)
+            if(enemy.hp >= 0) {
+                  return enemy.hp -= DMG;
+            }
+            console.log(enemy.hp)
+            return
+      }
+
+      // get magic() {
+      //       return this.hp / 2
+      // }
 }
 export class Player extends Entity {
       constructor() {
-            super('dev',1);
+            super(null,1);
             this.spells = new Array();
             this.gold = 10;
             this.xp = 0;

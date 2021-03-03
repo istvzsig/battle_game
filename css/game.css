@@ -1,0 +1,77 @@
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'PressStart2P';
+      font-size: 8px;
+}
+
+.side {
+      padding: 10px;
+      text-align: center;
+      margin-top: 10px;
+}
+
+.side * {
+      display: inline;
+      margin-left: 10px;
+
+}
+
+.side {
+      width: 50%;
+      float: left;
+}
+
+.side p:last-child {
+
+      width: 70%;
+      height: 20px;
+      line-height: 20px;
+      max-width: 600px;
+      display: block;
+      margin: auto;
+      color: white;
+      margin-top: 15px;
+      position: relative;
+      top: -20px;
+      color: black;
+
+}
+
+.side p:last-child:after {
+      content: "";
+      width: 100%;
+      height: 20px;
+      display: block;
+      position: relative;
+      top: -20px;
+
+      /* display: block; */
+      box-shadow: 3px 0 black, -3px 0 black, 0 -3px black, 0 3px black;
+}
+.side p:last-child:before {
+      content: "";
+      width: 100%;
+      height: 20px;
+      display: block;
+      position: relative;
+      top: 20px;
+      background: red;
+      z-index: -1;
+      animation: loseHP 3000ms forwards
+
+}
+
+@keyframes loseHP {
+      0% {
+            width: 100%;
+      }
+      50% {
+            width: 40%;
+      }
+      100% {
+            width: 0%;
+      }
+
+}
