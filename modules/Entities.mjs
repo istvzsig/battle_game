@@ -5,10 +5,10 @@ export class Entity {
 
       }
       get hp() {
-            return this.level * 100
+            return this.level * 1e2
       }
       get magic() {
-            return this.hp * 0.5
+            return this.hp / 2
       }
 }
 export class Player extends Entity {
