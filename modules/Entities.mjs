@@ -2,8 +2,13 @@ export class Entity {
       constructor(name,level) {
             this.name = name;
             this.level = level;
-            this.hp = this.level * 100;
-            this.magic = this.level * 66
+
+      }
+      get hp() {
+            return this.level * 100
+      }
+      get magic() {
+            return this.hp * 0.5
       }
 }
 export class Player extends Entity {
